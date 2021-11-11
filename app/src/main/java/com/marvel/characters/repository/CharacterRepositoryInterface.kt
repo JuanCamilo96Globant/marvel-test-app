@@ -9,14 +9,16 @@ import kotlinx.coroutines.flow.Flow
 interface CharacterRepositoryInterface {
 
     suspend fun getCharacters(
-        publicApiKey: String,
-        privateApiKey: String
+        timeStand: String,
+        apiKey: String,
+        hash: String
     ) : Flow<JsonObject?>
 
     suspend fun getCharacterDetails(
         id: String,
-        publicApiKey: String,
-        privateApiKey: String
+        timeStand: String,
+        apiKey: String,
+        hash: String
     ) : Flow<JsonObject?>
 
 }

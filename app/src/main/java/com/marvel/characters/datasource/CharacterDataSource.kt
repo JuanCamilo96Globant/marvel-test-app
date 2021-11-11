@@ -10,25 +10,32 @@ constructor(
 
     private val recipesService = apiServiceGenerator.createService(ApiService::class.java)
 
-    override suspend fun getCharacters(publicApiKey: String, privateApiKey: String): JsonObject? {
+    override suspend fun getCharacters(
+        timeStand: String,
+        apiKey: String,
+        hash: String
+    ): JsonObject? {
         return apiServiceGenerator.processCall {
             recipesService.getCharacters(
-                publicApiKey,
-                privateApiKey
+                timeStand,
+                apiKey,
+                hash
             )
         }
     }
 
     override suspend fun getCharacterDetails(
         id: String,
-        publicApiKey: String,
-        privateApiKey: String
+        timeStand: String,
+        apiKey: String,
+        hash: String
     ): JsonObject? {
         return apiServiceGenerator.processCall {
             recipesService.getCharacterDetails(
                 id,
-                publicApiKey,
-                privateApiKey
+                timeStand,
+                apiKey,
+                hash
             )
         }
     }

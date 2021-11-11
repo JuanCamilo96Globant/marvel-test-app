@@ -12,8 +12,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -23,10 +21,11 @@ import com.marvel.characters.databinding.FragmentCharactersBinding
 import com.marvel.characters.ui.placeholder.PlaceholderContent;
 import com.marvel.characters.databinding.ItemListContentBinding
 import com.marvel.characters.ui.charactersdetails.CharacterDetailFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharactersFragment : Fragment() {
 
-    private val charactersViewModel : CharactersViewModel by viewModels()
+    private val charactersViewModel by viewModel<CharactersViewModel>()
     private lateinit var binding: FragmentCharactersBinding
 
     override fun onCreateView(

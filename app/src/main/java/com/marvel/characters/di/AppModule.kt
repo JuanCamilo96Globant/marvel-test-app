@@ -18,7 +18,7 @@ object AppModule {
 
     val viewModelModule = module {
 
-        viewModel{CharactersViewModel(get<CharacterRepositoryInterface>())}
+        viewModel{CharactersViewModel(androidContext(),get<CharacterRepositoryInterface>())}
 
         viewModel{CharacterDetailViewModel(get<CharacterRepositoryInterface>())}
 
@@ -43,7 +43,9 @@ object AppModule {
         single {NetworkConnectivityUtils(androidContext())}
         single<NetworkConnectivityUtilsInterface> {return@single NetworkConnectivityUtils(androidContext())}
 
-        single { ApiServiceGenerator("",get <NetworkConnectivityUtilsInterface>()) }
+        single { ApiServiceGenerator("http://gateway.marvel.com/v1/public/",get <NetworkConnectivityUtilsInterface>()) }
 
     }
+
+
 }

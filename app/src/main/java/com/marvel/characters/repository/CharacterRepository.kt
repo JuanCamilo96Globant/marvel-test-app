@@ -21,13 +21,15 @@ constructor(
 ) : CharacterRepositoryInterface {
 
     override suspend fun getCharacters(
-        publicApiKey: String,
-        privateApiKey: String
+        timeStand: String,
+        apiKey: String,
+        hash: String
     ): Flow<JsonObject?> {
         return flow {
             val response = characterDataSource.getCharacters(
-                publicApiKey,
-                privateApiKey
+                timeStand,
+                apiKey,
+                hash
             )
             emit(response)
         }.flowOn(ioDispatcher)
@@ -35,14 +37,16 @@ constructor(
 
     override suspend fun getCharacterDetails(
         id: String,
-        publicApiKey: String,
-        privateApiKey: String
+        timeStand: String,
+        apiKey: String,
+        hash: String
     ): Flow<JsonObject?> {
         return flow {
             val response = characterDataSource.getCharacterDetails(
                 id,
-                publicApiKey,
-                privateApiKey
+                timeStand,
+                apiKey,
+                hash
             )
             emit(response)
         }.flowOn(ioDispatcher)

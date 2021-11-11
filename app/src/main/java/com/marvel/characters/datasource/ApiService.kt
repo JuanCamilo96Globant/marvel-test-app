@@ -10,15 +10,17 @@ interface ApiService {
 
     @GET("characters")
     suspend fun getCharacters(
-        @Query("ts") publicApiKey: String,
-        @Query("hash") privateApiKey: String
+        @Query("ts") timeStand: String,
+        @Query("apikey") apiKey: String,
+        @Query("hash") hash: String
     ): Response<JsonObject?>
 
     @GET("characters/{characterId}")
     suspend fun getCharacterDetails(
         @Path("characterId") id: String,
-        @Query("ts") publicApiKey: String,
-        @Query("hash") privateApiKey: String
+        @Query("ts") timeStand: String,
+        @Query("apikey") apiKey: String,
+        @Query("hash") hash: String
     ): Response<JsonObject?>
 
 }

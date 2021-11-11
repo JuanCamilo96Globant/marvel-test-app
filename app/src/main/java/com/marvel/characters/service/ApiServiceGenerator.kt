@@ -1,7 +1,11 @@
 package com.marvel.characters.service
 
 import com.google.gson.JsonObject
+import com.marvel.characters.utils.contentType
+import com.marvel.characters.utils.contentTypeValue
 import com.marvel.characters.utils.network.NetworkConnectivityUtilsInterface
+import com.marvel.characters.utils.timeoutConnect
+import com.marvel.characters.utils.timeoutRead
 import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -9,11 +13,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-
-private const val timeoutRead = 30   //In seconds
-private const val contentType = "Content-Type"
-private const val contentTypeValue = "application/json"
-private const val timeoutConnect = 30   //In seconds
 
 class ApiServiceGenerator constructor(
     private val baseUrl: String,
