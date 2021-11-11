@@ -13,8 +13,11 @@ import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.JsonObject
 import com.marvel.characters.R
 import com.marvel.characters.databinding.FragmentCharactersBinding
 import com.marvel.characters.ui.placeholder.PlaceholderContent;
@@ -23,7 +26,7 @@ import com.marvel.characters.ui.charactersdetails.CharacterDetailFragment
 
 class CharactersFragment : Fragment() {
 
-    val charactersViewModel : CharactersViewModel by viewModels()
+    private val charactersViewModel : CharactersViewModel by viewModels()
     private lateinit var binding: FragmentCharactersBinding
 
     override fun onCreateView(
@@ -104,6 +107,9 @@ class CharactersFragment : Fragment() {
         binding.marvelCharactersRecyclerview?.let {
             setupRecyclerView(it, onClickListener, onContextClickListener)
         }
+
+        addObservers()
+        charactersViewModel.getCharacters()
     }
 
     private fun setupRecyclerView(
@@ -182,6 +188,15 @@ class CharactersFragment : Fragment() {
             val idView: TextView = binding.idText
             val contentView: TextView = binding.content
         }
+
+    }
+
+    fun addObservers(){
+
+        val charactersObserver = Observer<JsonObject?> {
+            Toast.makeText(context,"llego",Toast.LENGTH_LONG).show()
+        }
+        charactersViewModel.characters.observe(viewLifecycleOwner,charactersObserver)
 
     }
 }
