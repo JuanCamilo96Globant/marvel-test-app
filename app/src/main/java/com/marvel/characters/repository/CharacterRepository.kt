@@ -24,7 +24,7 @@ constructor(
         timeStand: String,
         apiKey: String,
         hash: String
-    ): Flow<JsonObject?> {
+    ): Flow<BaseResponse<BaseData<Character>>?> {
         return flow {
             val response = characterDataSource.getCharacters(
                 timeStand,
@@ -40,7 +40,7 @@ constructor(
         timeStand: String,
         apiKey: String,
         hash: String
-    ): Flow<JsonObject?> {
+    ): Flow<BaseResponse<BaseData<Character>>?> {
         return flow {
             val response = characterDataSource.getCharacterDetails(
                 id,

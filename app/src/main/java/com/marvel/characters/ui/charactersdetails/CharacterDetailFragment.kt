@@ -9,13 +9,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.viewModels
+import android.widget.Toast
+import com.google.gson.JsonObject
 import com.marvel.characters.databinding.FragmentCharacterDetailsBinding
+import androidx.lifecycle.Observer
+import com.marvel.characters.model.Character
 import com.marvel.characters.ui.placeholder.PlaceholderContent
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterDetailFragment : Fragment() {
 
-    val characterDetailViewModel : CharacterDetailViewModel by viewModels()
+    private val characterDetailViewModel by viewModel<CharacterDetailViewModel>()
 
 
     private var item: PlaceholderContent.PlaceholderItem? = null
@@ -69,6 +73,12 @@ class CharacterDetailFragment : Fragment() {
         return rootView
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        addObservers()
+        characterDetailViewModel.getCharacter()
+    }
+
     private fun updateContent() {
         toolbarLayout?.title = item?.content
 
@@ -89,5 +99,15 @@ class CharacterDetailFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun addObservers() {
+
+        val characterObserver =
+            Observer<Character?> { character ->
+                Toast.makeText(context,"llego",Toast.LENGTH_LONG).show()
+            }
+        characterDetailViewModel.character.observe(viewLifecycleOwner, characterObserver)
+
     }
 }

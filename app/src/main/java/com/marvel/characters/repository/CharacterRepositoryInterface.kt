@@ -12,13 +12,13 @@ interface CharacterRepositoryInterface {
         timeStand: String,
         apiKey: String,
         hash: String
-    ) : Flow<JsonObject?>
+    ) : Flow<BaseResponse<BaseData<Character>>?>
 
     suspend fun getCharacterDetails(
         id: String,
         timeStand: String,
         apiKey: String,
         hash: String
-    ) : Flow<JsonObject?>
+    ) : Flow<BaseResponse<BaseData<Character>>?>
 
 }

@@ -20,7 +20,7 @@ object AppModule {
 
         viewModel{CharactersViewModel(androidContext(),get<CharacterRepositoryInterface>())}
 
-        viewModel{CharacterDetailViewModel(get<CharacterRepositoryInterface>())}
+        viewModel{CharacterDetailViewModel(androidContext(),get<CharacterRepositoryInterface>())}
 
     }
 

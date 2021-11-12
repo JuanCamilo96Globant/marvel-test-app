@@ -20,5 +20,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:context="com.marvel.characters.ui.MainMarvelActivity"
-        tools:listitem="@layout/item_list_content" />
+        tools:listitem="@layout/character_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

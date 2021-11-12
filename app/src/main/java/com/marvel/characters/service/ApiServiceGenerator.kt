@@ -1,6 +1,10 @@
 package com.marvel.characters.service
 
+import com.google.gson.Gson
 import com.google.gson.JsonObject
+import com.marvel.characters.model.BaseData
+import com.marvel.characters.model.BaseResponse
+import com.marvel.characters.model.Character
 import com.marvel.characters.utils.contentType
 import com.marvel.characters.utils.contentTypeValue
 import com.marvel.characters.utils.network.NetworkConnectivityUtilsInterface
@@ -69,7 +73,11 @@ class ApiServiceGenerator constructor(
         setupRetrofit()
     }
 
-    suspend fun processCall(responseCall : suspend () -> Response<JsonObject?>):JsonObject?{
+    suspend fun processCall(responseCall : suspend () -> Response<BaseResponse<BaseData<Character>>>): BaseResponse<BaseData<Character>>? {
+        return responseCall.invoke().body()
+    }
+
+    suspend fun processCall2(responseCall : suspend () -> Response<JsonObject?>): JsonObject? {
         return responseCall.invoke().body()
     }
 

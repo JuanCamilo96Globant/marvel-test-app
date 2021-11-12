@@ -1,6 +1,9 @@
 package com.marvel.characters.datasource
 
 import com.google.gson.JsonObject
+import com.marvel.characters.model.BaseData
+import com.marvel.characters.model.BaseResponse
+import com.marvel.characters.model.Character
 import com.marvel.characters.service.ApiServiceGenerator
 
 class CharacterDataSource
@@ -14,7 +17,7 @@ constructor(
         timeStand: String,
         apiKey: String,
         hash: String
-    ): JsonObject? {
+    ): BaseResponse<BaseData<Character>>? {
         return apiServiceGenerator.processCall {
             recipesService.getCharacters(
                 timeStand,
@@ -29,7 +32,7 @@ constructor(
         timeStand: String,
         apiKey: String,
         hash: String
-    ): JsonObject? {
+    ): BaseResponse<BaseData<Character>>? {
         return apiServiceGenerator.processCall {
             recipesService.getCharacterDetails(
                 id,

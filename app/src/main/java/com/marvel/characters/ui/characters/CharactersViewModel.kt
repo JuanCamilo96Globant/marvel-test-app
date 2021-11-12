@@ -7,6 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.JsonObject
 import com.marvel.characters.R
+import com.marvel.characters.model.BaseData
+import com.marvel.characters.model.BaseResponse
+import com.marvel.characters.model.Character
 import com.marvel.characters.repository.CharacterRepository
 import com.marvel.characters.repository.CharacterRepositoryInterface
 import com.marvel.characters.utils.Utils
@@ -21,9 +24,8 @@ class CharactersViewModel constructor(
     private val characterRepository: CharacterRepositoryInterface
 ) : ViewModel(), KoinComponent {
 
-    //val characterRepository: CharacterRepositoryInterface? = null
-    private val _characters = MutableLiveData<JsonObject?>()
-    val characters: LiveData<JsonObject?> = _characters
+    private val _characters = MutableLiveData<BaseResponse<BaseData<Character>>?>()
+    val characters: LiveData<BaseResponse<BaseData<Character>>?> = _characters
 
     fun getCharacters() {
         viewModelScope.launch {
