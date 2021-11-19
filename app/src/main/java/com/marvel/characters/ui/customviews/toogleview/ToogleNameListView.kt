@@ -30,9 +30,11 @@ class ToogleNameListView(context: Context, attrs: AttributeSet?) :
         binding.toogleContainer.setOnClickListener {
             if (isOpen) {
                 binding.rvNames.visibility = View.GONE
+                binding.ivActionIcon.setImageDrawable(context.getDrawable(android.R.drawable.arrow_down_float))
                 isOpen = false
             } else {
                 binding.rvNames.visibility = View.VISIBLE
+                binding.ivActionIcon.setImageDrawable(context.getDrawable(android.R.drawable.arrow_up_float))
                 isOpen = true
             }
         }

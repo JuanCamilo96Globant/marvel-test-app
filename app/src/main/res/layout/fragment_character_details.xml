@@ -127,7 +127,7 @@
         android:layout_gravity="bottom"
         android:layout_marginEnd="@dimen/middle_margin"
         android:layout_marginBottom="@dimen/middle_margin"
-        app:cardCornerRadius="@dimen/small_margin"
+        app:cardCornerRadius="@dimen/corner_radius"
         app:layout_anchor="@+id/item_detail_scroll_view"
         app:layout_anchorGravity="top|end"
         app:srcCompat="@android:drawable/stat_notify_chat">
@@ -139,6 +139,7 @@
             android:layout_margin="@dimen/mini_margin"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
+            app:shapeAppearanceOverlay="@style/RoundedSquare"
             tools:srcCompat="@tools:sample/avatars"
             />
 

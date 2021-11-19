@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageView"
+            android:id="@+id/iv_action_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/middle_margin"
@@ -23,7 +23,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_title"
-            app:srcCompat="@android:drawable/arrow_up_float" />
+            app:srcCompat="@android:drawable/arrow_down_float" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title"
@@ -33,9 +33,11 @@
             android:layout_marginTop="@dimen/small_margin"
             android:layout_marginEnd="@dimen/small_margin"
             android:layout_marginBottom="@dimen/small_margin"
+            android:textSize="@dimen/subtitle_size"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/iv_action_icon"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="TextView" />
 
