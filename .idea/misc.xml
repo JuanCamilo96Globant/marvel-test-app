@@ -3,14 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout-sw600dp/fragment_character_details.xml" value="0.1" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout-sw600dp/fragment_characters.xml" value="0.1" />
         <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/activity_item_detail.xml" value="0.1" />
-        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/character_card_a.xml" value="0.1" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/character_card_a.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/character_card_b.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/character_card_c.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/character_detail_loading_shimmer_layout.xml" value="0.13179347826086957" />
         <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/character_item.xml" value="0.1" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/character_loading_shimmer_layout.xml" value="0.22" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/error_responce_layout.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/fragment_character_details.xml" value="0.1625" />
         <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/fragment_characters.xml" value="0.1" />
         <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/fragment_item_list.xml" value="0.1" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/fragment_splash.xml" value="0.13179347826086957" />
         <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/item_list_content.xml" value="0.12817028985507245" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/string_item.xml" value="0.1" />
+        <entry key="..\:/Users/juan.collantes/AndroidStudioProjects/MarvelCharacters/app/src/main/res/layout/toogle_string_list.xml" value="0.1" />
       </map>
     </option>
   </component>

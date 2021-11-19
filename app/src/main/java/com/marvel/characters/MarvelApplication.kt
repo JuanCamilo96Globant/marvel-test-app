@@ -1,7 +1,7 @@
 package com.marvel.characters
 
 import android.app.Application
-import com.marvel.characters.di.AppModule
+import com.marvel.characters.domain.di.AppModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -15,10 +15,12 @@ class MarvelApplication : Application() {
             androidLogger()
             androidContext(this@MarvelApplication)
             modules(
-                AppModule.viewModelModule,
-                AppModule.repositoryModule,
+                AppModule.networkApiServiceModule,
                 AppModule.dataSourceModule,
-                AppModule.networkApiServiceModule
+                AppModule.repositoryModule,
+                AppModule.mappersModule,
+                AppModule.useCasesModule,
+                AppModule.viewModelModule
             )
         }
     }

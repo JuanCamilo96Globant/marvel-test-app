@@ -11,7 +11,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
+        android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -21,6 +21,13 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_character_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/detail_toolbar"
@@ -39,29 +46,111 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/item_detail"
-            style="?android:attr/textAppearanceLarge"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingStart="@dimen/container_horizontal_margin"
-            android:paddingTop="16dp"
-            android:paddingEnd="@dimen/container_horizontal_margin"
-            android:paddingBottom="16dp"
-            android:textIsSelectable="true"
-            tools:context="com.marvel.characters.ui.charactersdetails.CharacterDetailFragment" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/character_detail_loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/character_description_top_margin"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/character_detail_loading_shimmer_layout"/>
+
+                    <include layout="@layout/character_detail_loading_shimmer_layout"/>
+
+                    <include layout="@layout/character_detail_loading_shimmer_layout"/>
+
+                    <include layout="@layout/character_detail_loading_shimmer_layout"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/character_detail_container"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_description"
+                    android:layout_marginTop="@dimen/character_description_top_margin"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.marvel.characters.ui.customviews.toogleview.ToogleNameListView
+                    android:id="@+id/tlv_events"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.marvel.characters.ui.customviews.toogleview.ToogleNameListView
+                    android:id="@+id/tlv_stories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.marvel.characters.ui.customviews.toogleview.ToogleNameListView
+                    android:id="@+id/tlv_series"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.marvel.characters.ui.customviews.toogleview.ToogleNameListView
+                    android:id="@+id/tlv_comics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_profile"
+        android:layout_width="@dimen/small_size_image"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|start"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="@dimen/middle_margin"
+        android:layout_marginBottom="@dimen/middle_margin"
+        app:cardCornerRadius="@dimen/small_margin"
         app:layout_anchor="@+id/item_detail_scroll_view"
         app:layout_anchorGravity="top|end"
-        app:srcCompat="@android:drawable/stat_notify_chat" />
+        app:srcCompat="@android:drawable/stat_notify_chat">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_profile_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mini_margin"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            tools:srcCompat="@tools:sample/avatars"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.marvel.characters.ui.customviews.errorview.ErrorView
+        android:id="@+id/error_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        app:layout_anchor="@+id/item_detail_scroll_view"
+        app:layout_anchorGravity="center"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

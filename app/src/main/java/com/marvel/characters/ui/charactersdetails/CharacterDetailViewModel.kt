@@ -5,43 +5,24 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.gson.JsonObject
-import com.marvel.characters.R
-import com.marvel.characters.model.BaseData
-import com.marvel.characters.model.BaseResponse
-import com.marvel.characters.model.Character
-import com.marvel.characters.repository.CharacterRepositoryInterface
-import com.marvel.characters.utils.Utils
-import com.marvel.characters.utils.timeStand
-import kotlinx.coroutines.flow.collect
+import com.marvel.characters.data.model.CharacterDetail
+import com.marvel.characters.domain.usecases.GetCharacterDetailsUseCase
+import com.marvel.characters.ui.utils.Resource
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 
 class CharacterDetailViewModel constructor(
     private val context: Context,
-    private val characterRepository: CharacterRepositoryInterface
+    private val getCharacterDetailsUseCase: GetCharacterDetailsUseCase
 ) : ViewModel(), KoinComponent {
 
-    private val _character = MutableLiveData<Character?>()
-    val character: LiveData<Character?> = _character
+    private val _characterDetail = MutableLiveData<Resource<CharacterDetail>>()
+    val characterDetail: LiveData<Resource<CharacterDetail>> = _characterDetail
 
-    fun getCharacter() {
+    fun getCharacter(itemId: String) {
         viewModelScope.launch {
-            characterRepository?.getCharacterDetails(
-                "1011334",
-                timeStand.toString(),
-                context.getString(R.string.public_marvel_api_key),
-                Utils.buildHashMd5(
-                    timeStand.toString()
-                            +context.getString(R.string.private_marvel_api_key)
-                            +context.getString(R.string.public_marvel_api_key)
-                )
-            )?.collect {
-                if (it != null) {
-                    _character.value = it.data.results?.get(0)
-                }
-            }
+            _characterDetail.value = Resource.Loading()
+            _characterDetail.value = getCharacterDetailsUseCase(itemId)!!
         }
     }
-
 }

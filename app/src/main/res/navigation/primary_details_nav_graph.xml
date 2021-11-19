@@ -3,24 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/characters_fragment">
+    app:startDestination="@id/splash_fragment">
+
+    <fragment
+        android:id="@+id/splash_fragment"
+        android:name="com.marvel.characters.ui.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_characters_fragment"
+            app:destination="@id/characters_fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/characters_fragment"
         android:name="com.marvel.characters.ui.characters.CharactersFragment"
-        android:label="ItemListFragment">
+        android:label="ItemListFragment"
+        tools:layout="@layout/fragment_characters">>
         <action
             android:id="@+id/show_character_detail"
-            app:destination="@id/character_detail_fragment" />
+            app:destination="@id/character_detail_fragment"/>
     </fragment>
+
     <fragment
         android:id="@+id/character_detail_fragment"
         android:name="com.marvel.characters.ui.charactersdetails.CharacterDetailFragment"
         android:label="item_detail"
         tools:layout="@layout/fragment_character_details">
         <argument
-            android:name="item_id"
-            android:defaultValue="1011334"
+            android:name="character_id"
             app:argType="string" />
     </fragment>
 </navigation>

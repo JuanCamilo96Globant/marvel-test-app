@@ -6,4 +6,20 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="container_margin">8dp</dimen>
     <dimen name="container_horizontal_margin">16dp</dimen>
+
+    //Margins
+    <dimen name="mini_margin">4dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="middle_margin">16dp</dimen>
+    <dimen name="large_margin">24dp</dimen>
+    <dimen name="extra_large_margin">32dp</dimen>
+    <dimen name="character_description_top_margin">56dp</dimen>
+
+    <dimen name="corner_radious">8dp</dimen>
+    <dimen name="separator_width">1dp</dimen>
+    <dimen name="text_loading_height">20dp</dimen>
+    <dimen name="text_loading_width">70dp</dimen>
+    <dimen name="profile_photo_height">400dp</dimen>
+
+    <dimen name="small_size_image">50dp</dimen>
 </resources>

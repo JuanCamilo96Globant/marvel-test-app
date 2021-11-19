@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'koin'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -19,14 +20,12 @@ android {
     }
 
     buildTypes {
-        def BASE_API_URL = "BASE_API_URL"
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", BASE_API_URL, "\"http://gateway.marvel.com/v1/public/\""
-
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -76,4 +75,6 @@ dependencies {
 
     //picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 }

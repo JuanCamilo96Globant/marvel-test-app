@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Marvel Characters</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="url_api">http://gateway.marvel.com/v1/public/</string>
     <string name="public_marvel_api_key">c266f86dd4b266d3d77b74976ce3a61f</string>
     <string name="private_marvel_api_key">89e0617442cbdf652f600f4ca1292534dfbfc981</string>
     <string name="series">series</string>
     <string name="events">events</string>
     <string name="comics">comics</string>
     <string name="stories">stories</string>
-
+    <string name="image">image</string>
+    <string name="retry">Retry</string>
 </resources>
