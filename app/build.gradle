@@ -37,6 +37,15 @@ android {
         viewBinding true
     }
 
+    flavorDimensions "default"
+    productFlavors {
+        marvel {
+            buildConfigField "String", "BASE_API_URL", "\"http://gateway.marvel.com/v1/public/\""
+            buildConfigField "String", "PUBLIC_MARVEL_API_KEY", "\"c266f86dd4b266d3d77b74976ce3a61f\""
+            buildConfigField "String", "PRIVATE_MARVEL_API_KEY", "\"89e0617442cbdf652f600f4ca1292534dfbfc981\""
+        }
+    }
+
 }
 
 dependencies {

@@ -1,7 +1,7 @@
 package com.marvel.characters.data.datasource
 
 import android.content.Context
-import com.marvel.characters.R
+import com.marvel.characters.BuildConfig
 import com.marvel.characters.data.model.api.GenericErrorApiResponse
 import com.marvel.characters.data.model.api.SuccessApiResponse
 import com.marvel.characters.data.model.api.ApiCharacter
@@ -25,11 +25,11 @@ constructor(
             apiServiceGenerator.processCallWithError {
                 recipesService.getCharacters(
                     TIME_STAND.toString(),
-                    context.getString(R.string.public_marvel_api_key),
+                    BuildConfig.PUBLIC_MARVEL_API_KEY,
                     Utils.buildHashMd5(
                         TIME_STAND.toString()
-                                + context.getString(R.string.private_marvel_api_key)
-                                + context.getString(R.string.public_marvel_api_key)
+                                + BuildConfig.PRIVATE_MARVEL_API_KEY
+                                + BuildConfig.PUBLIC_MARVEL_API_KEY
 
                     )
                 )
@@ -55,11 +55,11 @@ constructor(
                 recipesService.getCharacterDetails(
                     id,
                     TIME_STAND.toString(),
-                    context.getString(R.string.public_marvel_api_key),
+                    BuildConfig.PUBLIC_MARVEL_API_KEY,
                     Utils.buildHashMd5(
                         TIME_STAND.toString()
-                                + context.getString(R.string.private_marvel_api_key)
-                                + context.getString(R.string.public_marvel_api_key)
+                                + BuildConfig.PRIVATE_MARVEL_API_KEY
+                                + BuildConfig.PUBLIC_MARVEL_API_KEY
                     )
                 )
             }) {

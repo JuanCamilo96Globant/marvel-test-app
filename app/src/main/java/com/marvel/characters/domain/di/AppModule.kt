@@ -1,6 +1,6 @@
 package com.marvel.characters.domain.di
 
-import com.marvel.characters.R
+import com.marvel.characters.BuildConfig
 import com.marvel.characters.data.datasource.CharacterDataSourceImpl
 import com.marvel.characters.data.datasource.CharacterDataSource
 import com.marvel.characters.domain.repository.CharacterRepositoryImpl
@@ -108,7 +108,7 @@ object AppModule {
 
     val networkApiServiceModule = module {
 
-        single { ApiServiceGenerator(androidContext().getString(R.string.url_api)) }
+        single { ApiServiceGenerator(BuildConfig.BASE_API_URL) }
 
     }
 
