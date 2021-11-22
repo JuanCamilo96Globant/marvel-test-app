@@ -9,9 +9,7 @@ class CharacterMapperImpl : CharacterMapper {
             input.id ?: 0 ,
             input.name ?: "",
             input.description ?: "",
-            with(input.thumbnail) {
-                "${this?.path}.${this?.extension}" ?: ""
-            },
+            "${input.thumbnail?.path?: ""}.${input.thumbnail?.extension?: ""}",
             input.comics?.items?.size ?: 0,
             input.stories?.items?.size ?: 0,
             input.events?.items?.size ?: 0,

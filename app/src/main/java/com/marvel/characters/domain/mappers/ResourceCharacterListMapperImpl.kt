@@ -11,7 +11,7 @@ class ResourceCharacterListMapperImpl (
     override fun map(input: Resource<List<ApiCharacter>?>): Resource<List<Character>> {
         return when(input){
             is Resource.Success->{
-                Resource.Success(input.data?.let { characterListMapper.map(it) })
+                Resource.Success(characterListMapper.map(input.data))
             }
             else ->Resource.GenericDataError(input.errorCode, input.errorMessage)
         }

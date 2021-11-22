@@ -37,6 +37,10 @@ android {
         viewBinding true
     }
 
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+
     flavorDimensions "default"
     productFlavors {
         marvel {
@@ -77,7 +81,6 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-fragment:$koin_version"
 
     testImplementation "io.insert-koin:koin-test:$koin_version"
-    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
 
     //corutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
@@ -86,4 +89,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
+    //mockito
+    testImplementation 'org.mockito:mockito-core:2.19.0'
 }

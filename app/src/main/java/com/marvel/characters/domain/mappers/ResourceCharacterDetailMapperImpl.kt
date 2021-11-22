@@ -11,7 +11,7 @@ class ResourceCharacterDetailMapperImpl (
     override fun map(input: Resource<ApiCharacter?>): Resource<CharacterDetail> {
         return when(input){
             is Resource.Success->{
-                Resource.Success(input.data?.let { characterDetailMapper.map(it) })
+                Resource.Success(characterDetailMapper.map(input.data))
             }
             else ->Resource.GenericDataError(input.errorCode, input.errorMessage)
         }

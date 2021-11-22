@@ -12,9 +12,7 @@ class CharacterDetailMapperImpl (
             input?.id ?: 0,
             input?.name ?: "",
             input?.description ?: "",
-            with(input?.thumbnail) {
-                "${this?.path}.${this?.extension}"
-            },
+            "${input?.thumbnail?.path ?: ""}.${input?.thumbnail?.extension ?: ""}",
             itemListToNameListMapper.map(input?.comics?.items),
             itemListToNameListMapper.map(input?.stories?.items),
             itemListToNameListMapper.map(input?.events?.items),

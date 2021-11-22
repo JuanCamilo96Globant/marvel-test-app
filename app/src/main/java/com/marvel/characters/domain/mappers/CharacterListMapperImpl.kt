@@ -8,7 +8,7 @@ class CharacterListMapperImpl (
         ): CharacterListMapper {
 
     override fun map(input: List<ApiCharacter>?): List<Character> {
-        return return input?.map { characterMapper.map(it) }.orEmpty()
+        return input?.map { characterMapper.map(it) }.orEmpty()
     }
 
 }
